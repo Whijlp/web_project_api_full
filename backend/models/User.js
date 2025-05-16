@@ -25,6 +25,8 @@ email:{type: String,
 password:{type: String,
   required: true,
   min: 8,
-  max: 30}
+  max: 30,
+  select: false
+}
 })
   module.exports = mongoose.model("User", userSchema);
