@@ -7,9 +7,9 @@ const findCards = async (req, res) => {
       .populate("owner")
       .populate("likes")
       .orFail(new Error("No hay tarjetas"));
-    res.send(cards);
+    res.status(200).json(cards);
   } catch (error) {
-    res.status(404).send({ message: "Error al buscar tarjetas", error });
+    res.status(404).json({ message: "Error al buscar tarjetas", error: error.message });
   }
 };
 
@@ -21,7 +21,7 @@ const createCard = async (req, res) => {
     const saveCard = await newCard.save();
     return res.status(201).json(saveCard);
   } catch (error) {
-    res.status(400).send({ message: "Error al crear tarjeta", error });
+    res.status(400).json({ message: "Error al crear tarjeta", error: error.message });
   }
 };
 
@@ -36,8 +36,9 @@ const deleteCard = async (req, res) => {
       return res.status(403).send({ message: "No tienes permiso para borrar esta tarjeta" });
     }
 
-    await card.deleteOne(); 
-    res.status(200).send({ message: "Tarjeta eliminada exitosamente", card });
+    await card.deleteOne();
+        res.status(200).json({ message: "Tarjeta eliminada exitosamente", card });
+
 
   } catch (error) {
     if (error.message === "DocumentNotFound") {
@@ -52,8 +53,8 @@ const likeCard = async (req, res) => {
     req.params.cardId,
     { $addToSet: { likes: req.user._id } },
     { new: true }
-  );
-  res.send(updateLikeCarde);
+  ).populate("owner likes", "-password");
+   res.status(200).json(updateLikeCarde);
 };
 
 const dislikeCard = async (req, res) => {
@@ -61,8 +62,8 @@ const dislikeCard = async (req, res) => {
     req.params.cardId,
     { $pull: { likes: req.user._id } },
     { new: true }
-  );
-  res.send(updateLikeCarde);
+  ).populate("owner likes", "-password");;
+  res.status(200).json(updateLikeCarde);
 };
 
 module.exports = { findCards, createCard, deleteCard, likeCard, dislikeCard };

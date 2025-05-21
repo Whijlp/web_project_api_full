@@ -24,7 +24,7 @@ email:{type: String,
 },
 password:{type: String,
   required: true,
-  min: 8,
+  min: 4,
   max: 30,
   select: false
 }
