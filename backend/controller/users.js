@@ -32,6 +32,16 @@ const login = async (req, res) => {
   }
 };
 
+const checkEmail = async (req, res) => {
+  const { email } = req.body;
+  try {
+    const user = await userModel.findOne({ email });
+    res.send({ exists: !!user });
+  } catch (err) {
+    res.status(500).send({ message: "Error interno del servidor" });
+  }
+}
+
 const findUsers = async (req, res) => {
   try {
     const users = await userModel.find();
@@ -118,4 +128,5 @@ module.exports = {
   userMe,
   userAvatar,
   login,
+  checkEmail,
 };

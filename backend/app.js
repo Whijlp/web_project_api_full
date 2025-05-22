@@ -5,7 +5,7 @@ const cardRouter = require("./routes/cards");
 const mongoose = require("mongoose");
 const user = require("./models/User");
 const auth = require("./middlewares/auth");
-
+const cors = require("cors");
 const { login, createUsers } = require("./controller/users");
 require("dotenv").config();
 
@@ -18,13 +18,13 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-
+app.use(cors())
 app.use(express.json());
 
 app.use("/signin",login)
-app.use("/signup", createUsers);
+app.use("/signinup", createUsers);
 
-app.use(auth);
+//app.use(auth);
 
 app.use("/api", userRouter);
 app.use("/api", cardRouter);
