@@ -1,0 +1,162 @@
+.profile {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 50px;
+}
+.profile__info-container {
+  flex-grow: 1;
+  margin-left: 30px;
+}
+
+.profile__info {
+  display: flex;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.profile__title {
+  margin: 21px 0 16px;
+  font-size: 42px;
+  font-weight: 500;
+  line-height: 48px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.profile__subtitle {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+}
+
+.profile_avatar {
+
+  position: relative;
+  border: none;
+  background: none;
+}
+
+.profile_avatar:hover .profile__edit-avatar {
+  display: flex;
+}
+
+
+.profile_image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile__edit-avatar {
+  display: none;
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  scale: 2.9;
+}
+
+.profile_avatar:hover {
+  background-color: rgb(0, 0, 0);
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+.profile__edit-button {
+  box-shadow: 0 0 15px rgb(0, 0, 0) inset;
+  background-color: transparent;
+  width: 24px;
+  height: 24px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  margin-left: 18px;
+  margin-top: 35px;
+  cursor: pointer;
+}
+
+.profile__edit-button:hover {
+  opacity: 90%;
+}
+.profile__edit-button:active {
+  transform: scale(0.9);
+}
+.profile__add-button {
+  margin: 25px 0 0 105px;
+  width: 150px;
+  height: 50px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: white;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5) inset;
+  background-color: transparent;
+}
+.profile__add-button:active {
+  transform: scale(0.9);
+}
+.profile__add-button:hover {
+  opacity: 80%;
+}
+
+.profile__image-button {
+  width: 22px;
+  height: 22px;
+}
+@media screen and (max-width: 768px) {
+  .profile {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .profile__title {
+    font-size: 35px;
+  }
+  .profile_image {
+    margin: auto;
+  }
+
+  .profile__subtitle {
+    font-size: 15px;
+  }
+
+  .profile__add-button {
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .profile {
+    margin: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile__subtitle {
+    text-align: center;
+    padding-bottom: 10px;
+  }
+
+  .profile_avatar {
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__title {
+    margin: 20px 0 14px;
+    font-size: 22px;
+  }
+  .profile__info-container {
+    text-align: center;
+  }
+  .profile__add-button {
+    margin: 32px 0 36px;
+    width: 282px;
+  }
+}
