@@ -1,4 +1,4 @@
-Web_project_around_express
+Web_project_api_full
 
 Proyecto API REST con MongoDB y Express
 
@@ -33,4 +33,4 @@ Herramienta para probar las API REST.
 Git
 Control de versiones y colaboración en GitHub.
 
-https://github.com/Whijlp/web_project_around_express
+https://github.com/Whijlp/web_project_api_full
