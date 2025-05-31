@@ -23,8 +23,8 @@ const app = express();
 const PORT = process.env.PORT;
 
 const allowedCors = [
-  'https://tripleten.tk',
-  'http://tripleten.tk',
+  'https://alrededor.mooo.com',
+  'http://www.alrededor.mooo.com',
   'http://localhost:3001',
   'http://localhost:5173'
 ];
