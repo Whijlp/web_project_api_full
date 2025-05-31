@@ -22,7 +22,25 @@ const app = express();
 
 const PORT = process.env.PORT;
 
-app.use(cors())
+const allowedCors = [
+  'https://tripleten.tk',
+  'http://tripleten.tk',
+  'http://localhost:3000'
+];
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (!origin || allowedCors.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('No permitido por CORS'));
+    }
+  },
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type', 'Authorization'],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -36,6 +54,7 @@ app.use((req, res, next) => {
   logRequest(log);
   next();
 });
+
 
 app.use("/api/signin", celebrate(userLoginValidation),login)
 app.use("/api/signinup",celebrate( userCreateValidation), createUsers);

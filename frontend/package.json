@@ -7,7 +7,9 @@
     "dev": "vite --open",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && scp -r ./dist/* paolarodriguez_diseno@34.67.105.110:/home/paolarodriguez_diseno/frontend"
+
   },
   "dependencies": {
     "cors": "^2.8.5",
