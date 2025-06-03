@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3001/api";
+const BASE_URL = "https://api.alrededor.mooo.com";
 
 //"https://se-register-api.en.tripleten-services.com/v1"
 export const register = async (email, password) => {
