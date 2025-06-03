@@ -176,23 +176,6 @@ function App() {
     }
   }, [isAuthenticated, navigate]);
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("token");
-  //   setIsAuthenticated(!!token);
-  //   userInfo().then((response) => {
-  //     if (response.error) {
-  //       if (!token && location.pathname === "/") {
-  //         localStorage.removeItem("token");
-  //         return navigate("/signin");
-  //       }
-  //     } else {
-  //       setCurrentUser((state) => ({ ...state, ...response.data }));
-  //     }
-  //   });
-  //   if (token && location.pathname === "/signin") {
-  //     navigate("/");
-  //   }
-  // }, [isAuthenticated, navigate]);
 
   return (
     <CurrentUserContexts.Provider value={{ currentUser, setCurrentUser }}>
