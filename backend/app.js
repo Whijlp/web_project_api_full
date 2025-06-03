@@ -57,13 +57,13 @@ app.use((req, res, next) => {
 });
 
 
-app.use("/api/signin", celebrate(userLoginValidation),login)
-app.use("/api/signinup",celebrate( userCreateValidation), createUsers);
+app.use("/signin", celebrate(userLoginValidation),login)
+app.use("/signinup",celebrate( userCreateValidation), createUsers);
 
-app.use("/api/users", userRouter);
+app.use("/users", userRouter);
 
 app.use(auth)
-app.use("/api/cards", cardRouter);
+app.use("/cards", cardRouter);
 
 app.get("*", (req, res) => {
   res.status(404).send({ message: "Recurso solicitado no encontrado" });
