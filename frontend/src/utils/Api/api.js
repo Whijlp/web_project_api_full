@@ -133,7 +133,7 @@
 
 
   const api = new Api({
-    baseURL: "http://localhost:3001/api",
+    baseURL: "api.alrededor.mooo.com",
     headers: {
       authorization: "6f8a9c3e7b2d4f1a9e0c5b7d3f8e2a1c",
       "Content-Type": "application/json",

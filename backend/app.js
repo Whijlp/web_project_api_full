@@ -25,7 +25,7 @@ const PORT = process.env.PORT;
 const allowedCors = [
   'https://alrededor.mooo.com',
   'http://www.alrededor.mooo.com',
-  'http://localhost:3001',
+  'http://localhost:3000',
   'http://localhost:5173'
 ];
 
